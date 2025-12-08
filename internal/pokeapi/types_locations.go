@@ -11,8 +11,8 @@ type RespShallowLocations struct {
 	} `json:"results"`
 }
 
-// RespShallowLocation -
-type RespShallowLocation struct {
+// RespLocation -
+type RespLocation struct {
 	EncounterMethodRates []EncounterMethodRates `json:"encounter_method_rates"`
 	GameIndex            int                    `json:"game_index"`
 	ID                   int                    `json:"id"`
@@ -23,11 +23,6 @@ type RespShallowLocation struct {
 }
 
 type EncounterMethod struct {
-	Name string `json:"name"`
-	URL  string `json:"url"`
-}
-
-type Version struct {
 	Name string `json:"name"`
 	URL  string `json:"url"`
 }
@@ -57,7 +52,7 @@ type Names struct {
 	Name     string   `json:"name"`
 }
 
-type Pokemon struct {
+type LocationPokemon struct {
 	Name string `json:"name"`
 	URL  string `json:"url"`
 }
@@ -82,6 +77,6 @@ type EncounterVersionDetails struct {
 }
 
 type PokemonEncounters struct {
-	Pokemon        Pokemon                   `json:"pokemon"`
+	Pokemon        LocationPokemon           `json:"pokemon"`
 	VersionDetails []EncounterVersionDetails `json:"version_details"`
 }

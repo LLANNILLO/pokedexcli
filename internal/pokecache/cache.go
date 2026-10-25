@@ -51,16 +51,7 @@ func (c *Cache) reapLoop(interval time.Duration) {
 	ticker := time.NewTicker(interval)
 	for range ticker.C {
 		c.reap(time.Now().UTC(), interval)
-		t := <-ticker.C
-		c.mu.Lock()
-		for key, cacheEntry := range c.CacheEntries {
-			if cacheEntry.createdAt.Add(c.duration).Before(t){
-				delete(c.CacheEntries,key)
-			}
-		}
-		c.mu.Unlock()
 	}
-
 }
 
 func (c *Cache) reap(now time.Time, last time.Duration) {
